@@ -33,11 +33,6 @@ textarea.addEventListener('keyup', (e) => {
 form.addEventListener('submit', (e)=>{
 e.preventDefault();
 sendMessage(textarea.value)
-// const msg = textarea.value;
-// append(`${msg}`, 'outgoing')   
-//     textarea.value = '' 
-//     scrollToBottom()
-//     socket.emit('message', msg)
 })
 
 function sendMessage(message){

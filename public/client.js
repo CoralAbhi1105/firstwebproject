@@ -1,14 +1,16 @@
 const socket = io();
 
 let name1;
+const form = document.getElementById('send-container');
 let textarea = document.querySelector('#textarea');
+const messageInput = document.getElementById('textarea')
 let messageArea = document.querySelector('.message__area');
 
-const append = (message, position)=>{
+const append = (message)=>{
     const messageElement = document.createElement('div');
     messageElement.innerText = message;
     messageElement.classList.add('message');
-    messageElement.classList.add(position);
+    // messageElement.classList.add('');
     messageArea.append(messageElement);
 }
 
@@ -18,7 +20,7 @@ do{
 socket.emit('New-user-joined', name1)
 
 socket.on('User-joined', name1 =>{
-    append(`${name1} joined the chat`, 'right')
+    append(`${name1} joined the chat`)
 })
 
 
@@ -28,11 +30,15 @@ textarea.addEventListener('keyup', (e) => {
     }
 })
 
-// form.addEventListener('keyup', (e) => {
-//     if(e.key === 'submit') {
-//         sendMessage(e.target.value)
-//     }
-// })
+form.addEventListener('submit', (e)=>{
+e.preventDefault();
+sendMessage(textarea.value)
+// const msg = textarea.value;
+// append(`${msg}`, 'outgoing')   
+//     textarea.value = '' 
+//     scrollToBottom()
+//     socket.emit('message', msg)
+})
 
 function sendMessage(message){
     let msg = {
@@ -46,8 +52,6 @@ function sendMessage(message){
 
     // Send to server
     socket.emit('message', msg)
-
-
 }
 
 function appendMessage(msg, type){

@@ -72,9 +72,11 @@ textarea{
     padding: 10px;
     border-radius: 16px;
     margin-bottom: 35px;
-    max-width: 300px;
     position: relative;
-
+    font-size: 14px;
+    text-align: center;
+    color: red;
+    font-weight: bold;
 }
 
 .incoming{
@@ -97,14 +99,15 @@ textarea{
     font-size: 14px;
 }
 
+
 .form button{
     width: 100px;
-    color: rgb(1, 41, 1);
+    color: rgb(255, 255, 255);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     outline: none;
-    border: 2px solid rgb(3, 92, 0);
-    background-color: rgb(67, 170, 72);
-    border-radius: 17px;
+    border: 2px solid rgb(3, 3, 3);
+    background-color: #075e54;
+    border-radius: 12px;
     font-size: 1.5rem;
     text-align: center;
     padding: 10px;
